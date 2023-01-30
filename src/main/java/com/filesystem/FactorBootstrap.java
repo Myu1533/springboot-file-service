@@ -1,4 +1,4 @@
-package main.java.com.filesystem;
+package com.filesystem;
 
 /**
  * @author Man Yu
