@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8163b5f-4a58-4f9f-8ef0-5bb775c31273" name="Changes" comment="ADD: add file upload controller" />
+    <list default="true" id="d8163b5f-4a58-4f9f-8ef0-5bb775c31273" name="Changes" comment="ADD: add target/* to .gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675148289772</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ADD: add target/* to .gitignore">
+      <created>1675148374099</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675148374099</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,7 +125,8 @@
     <MESSAGE value="ADD: add funs in DateUtils" />
     <MESSAGE value="ADD: add FileUploadUtil" />
     <MESSAGE value="ADD: add file upload controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD: add file upload controller" />
+    <MESSAGE value="ADD: add target/* to .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD: add target/* to .gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

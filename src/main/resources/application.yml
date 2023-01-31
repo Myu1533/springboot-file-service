@@ -1,5 +1,10 @@
 server:
   port: 21021
-
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mariadb://localhost:3306/htzq_strategy?useUnicode=true&characterEncoding=UTF8
 file-service:
   profile: E:/java-file-system/k8s/
