@@ -1,6 +1,7 @@
-package com.filesystem.controller;
+package com.filesystem.fileupload;
 
 import com.filesystem.conf.WebConfig;
+import com.filesystem.podyml.PodYmlService;
 import com.filesystem.utils.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class FIleUploadController {
     @Autowired
     private WebConfig webConfig;
+    @Autowired
+    private PodYmlService podYmlService;
     @PostMapping("/upload")
     @ResponseBody
     public Object upload(@RequestParam("file") MultipartFile file) {
