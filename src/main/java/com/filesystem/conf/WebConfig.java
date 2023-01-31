@@ -12,25 +12,25 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "file-service")
 public class WebConfig {
 
-    private static String profile;
+    private String profile;
 
-    public static String getProfile() {
+    public String getProfile() {
         return profile;
     }
 
-    public static void setProfile(String profile) {
-        WebConfig.profile = profile;
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
-    public static String getFilePath() {
+    public String getFilePath() {
         return profile + "file/";
     }
 
-    public static String getDownloadPath() {
+    public String getDownloadPath() {
         return profile + "download/";
     }
 
-    public static String getUploadPath() {
-        return profile + "upload/";
+    public String getUploadPath() {
+        return profile + "pod/";
     }
 }

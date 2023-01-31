@@ -1,6 +1,7 @@
 package com.filesystem.utils;
 
 import com.filesystem.conf.WebConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -12,21 +13,23 @@ import java.io.IOException;
  * @version 2023/1/30
  */
 public class FileUploadUtil {
+    @Autowired
+    private WebConfig webConfig;
     public static final long DEFAULT_MAX_SIZE = 50 * 1024 * 1024;
 
     public static final int DEFAULT_FILE_NAME_LENGTH = 100;
 
-    private static String defaultBaseDir = WebConfig.getProfile();
+    private String defaultBaseDir = webConfig.getProfile();
 
     public static final String FILE_EXTENSION = ".yml";
 
     private static int counter = 0;
 
-    public static void setDefaultBaseDir(String defaultBaseDir) {
-        FileUploadUtil.defaultBaseDir = defaultBaseDir;
+    public void setDefaultBaseDir(String defaultBaseDir) {
+        this.defaultBaseDir = defaultBaseDir;
     }
 
-    public static String getDefaultBaseDir() {
+    public String getDefaultBaseDir() {
         return defaultBaseDir;
     }
 

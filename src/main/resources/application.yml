@@ -1,0 +1,5 @@
+server:
+  port: 21021
+
+file-service:
+  profile: E:/java-file-system/k8s/
