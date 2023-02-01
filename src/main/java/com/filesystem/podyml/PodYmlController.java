@@ -10,7 +10,6 @@ import java.util.Map;
 /**
  * @author Man Yu
  * @version 2023/1/31
- * @email manyu@hongtastock.com
  */
 @RestController
 @RequestMapping("pod")
@@ -25,7 +24,7 @@ public class PodYmlController {
 
     @PostMapping("/yml")
     @ResponseBody
-    public String add() throws IOException {
-        return podYmlService.add();
+    public String create() throws IOException {
+        return podYmlService.create("2", "test", 1);
     }
 }

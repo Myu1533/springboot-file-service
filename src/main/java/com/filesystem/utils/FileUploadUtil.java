@@ -41,7 +41,7 @@ public class FileUploadUtil {
         }
     }
 
-    public static final String uploadText(String baseDir, MultipartFile file) throws IOException {
+    public static String uploadText(String baseDir, MultipartFile file) throws IOException {
         try {
             return upload(baseDir, file, ".txt");
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public class FileUploadUtil {
         }
     }
 
-    public static final String upload(String baseDir, MultipartFile file, String extension) throws IOException {
+    public static String upload(String baseDir, MultipartFile file, String extension) throws IOException {
         int fileNameLength = file.getOriginalFilename().length();
         if (fileNameLength > FileUploadUtil.DEFAULT_FILE_NAME_LENGTH) {
             System.out.println("文件名过长");
@@ -65,13 +65,13 @@ public class FileUploadUtil {
         return fileName;
     }
 
-    public static final String extractFilename(MultipartFile file, String extension) {
+    public static String extractFilename(MultipartFile file, String extension) {
         String filename = file.getOriginalFilename();
         filename = CustomDateUtil.datePath() + "/" + encodingFilename(filename) + extension;
         return filename;
     }
 
-    private static final File getAbsoluteFile(String uploadDir, String filename) throws IOException {
+    private static File getAbsoluteFile(String uploadDir, String filename) throws IOException {
         File desc = new File(File.separator + filename);
 
         if (!desc.getParentFile().exists()) {
@@ -85,13 +85,13 @@ public class FileUploadUtil {
         return desc;
     }
 
-    private static final String encodingFilename(String filename) {
+    private static String encodingFilename(String filename) {
         filename = filename.replace("_", "");
         filename = MD5Util.hash(filename + System.nanoTime() + counter++);
         return filename;
     }
 
-    public static final void assertAllowed(MultipartFile file) {
+    public static void assertAllowed(MultipartFile file) {
         long size = file.getSize();
         if (size > DEFAULT_MAX_SIZE) {
             System.out.println("文件大小过大");

@@ -1,17 +1,16 @@
 package com.filesystem.podyml;
 
+import com.filesystem.utils.CustomDateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 /**
  * @author Man Yu
  * @version 2023/1/31
- * @email manyu@hongtastock.com
  */
 
 @Service
@@ -19,14 +18,28 @@ public class PodYmlService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Map<String, Object>> query() throws IOException {
+    public List<Map<String, Object>> query() {
         String sql = "select * from t_pod_yml";
-        List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
-        return list;
+        return jdbcTemplate.queryForList(sql);
     }
 
-    public String add() {
-        String sql = "insert into t_pod_yml values ('1', 'test', 1, '2023-01-12 13:42:33', '2023-01-12 13:42:33', 1);";
+    public String create(String id, String url, Integer type) {
+        String querySql = "select * from t_pod_yml where type = 1 and status = 1;";
+        List<Map<String, Object>> list = jdbcTemplate.queryForList(querySql);
+        if(list.size() > 0) {
+            list.forEach(item -> {
+                String updateSql = "update t_pod_yml set status = 0 where id = '" + item.get("id") + "';";
+                jdbcTemplate.update(updateSql);
+            });
+        }
+        String createTimestamp = CustomDateUtil.getTime();
+        String updateTimestamp = CustomDateUtil.getTime();
+        String sql = "insert into t_pod_yml values ('" + id +
+                "', '" + url +
+                "', " + type +
+                ", '" + createTimestamp +
+                "', '" + updateTimestamp +
+                "', 1);";
         try {
             jdbcTemplate.update(sql);
         } catch (RuntimeException e) {
